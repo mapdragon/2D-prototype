@@ -8,12 +8,11 @@ public class BasicEnemy : MonoBehaviour
     public float speed = 1;
     public int health = 20;
     public int damage = 5;
-    public float aggroRange = 40;
 
     private Animator an;
     private SpriteRenderer sr;
     private bool aggro;
-    private UnityStandardAssets._2D.PlatformerCharacter2D player;
+    private GameObject player;
 
     // Use this for initialization
     void Start()
@@ -25,7 +24,6 @@ public class BasicEnemy : MonoBehaviour
 
     void FixedUpdate()
     {
-        aggro = TestAggro();
         an.SetBool("Moving", aggro);
 
         if (aggro)
@@ -49,18 +47,13 @@ public class BasicEnemy : MonoBehaviour
         }
     }
 
-    bool TestAggro()
+    void OnTriggerEnter2D(Collider2D other)
     {
-        Collider2D[] result = null;
-        Physics2D.OverlapCircleNonAlloc(transform.position, aggroRange, result, layerMask: LayerMask.NameToLayer("Player"));
-        if(result != null)
+        if (other.CompareTag("Player"))
         {
-            player = result[0].gameObject.GetComponent<UnityStandardAssets._2D.PlatformerCharacter2D>();
-            return true;
-        }
-        else
-        {
-            return false;
+            aggro = true;
+            this.gameObject.GetComponent<CircleCollider2D>().enabled = false;
+            player = other.gameObject;
         }
     }
 
@@ -86,17 +79,7 @@ public class BasicEnemy : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            player.health -= damage;
-            int direction;
-            if (player.transform.position.x > transform.position.x)
-            {
-                direction = 1;
-            }
-            else
-            {
-                direction = -1;
-            }
-            player.GetComponent<Rigidbody2D>().AddForce(new Vector2(200 * direction,0));
+            player.GetComponent<UnityStandardAssets._2D.PlatformerCharacter2D>().TakeDamage(damage);
         }
     }
 }

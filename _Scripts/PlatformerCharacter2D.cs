@@ -104,10 +104,12 @@ namespace UnityStandardAssets._2D
             if (Input.GetButtonDown("Fire1") && !m_Anim.GetBool("Attacking"))
             {
                 m_Anim.SetBool("Attacking", true);
+                GetComponentInChildren<PolygonCollider2D>().enabled = true;
             }
             else
             {
                 m_Anim.SetBool("Attacking", false);
+                GetComponentInChildren<PolygonCollider2D>().enabled = false;
             }
         }
 
@@ -121,6 +123,11 @@ namespace UnityStandardAssets._2D
             Vector3 theScale = transform.localScale;
             theScale.x *= -1;
             transform.localScale = theScale;
+        }
+
+        public void TakeDamage(int dam)
+        {
+            health -= dam;
         }
     }
 }

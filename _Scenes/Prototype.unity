@@ -169,6 +169,7 @@ GameObject:
   - component: {fileID: 373192855}
   - component: {fileID: 373192854}
   - component: {fileID: 373192857}
+  - component: {fileID: 373192856}
   m_Layer: 8
   m_Name: TestEnemy
   m_TagString: Enemy
@@ -191,7 +192,6 @@ MonoBehaviour:
   speed: 4
   health: 20
   damage: 5
-  aggroRange: 40
 --- !u!50 &373192855
 Rigidbody2D:
   serializedVersion: 4
@@ -213,6 +213,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!58 &373192856
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 373192853}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 3
 --- !u!60 &373192857
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -390,7 +405,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1579277347}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &525874579
 SpriteRenderer:
@@ -549,7 +564,7 @@ GameObject:
   - component: {fileID: 1242953285}
   m_Layer: 0
   m_Name: Scythe_Arm
-  m_TagString: Untagged
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -566,7 +581,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1579277347}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1242953283
 SpriteRenderer:
@@ -619,7 +634,7 @@ PolygonCollider2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1242953281}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -1011,14 +1026,14 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1579277340}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13.92, y: -2.98, z: 0}
+  m_LocalPosition: {x: 9.36, y: -2.98, z: 0}
   m_LocalScale: {x: 1.7516685, y: 1.7516682, z: 1.7516682}
   m_Children:
   - {fileID: 1543656890}
   - {fileID: 395120100}
   - {fileID: 1320035212}
-  - {fileID: 1242953282}
   - {fileID: 525874578}
+  - {fileID: 1242953282}
   - {fileID: 1870415755}
   - {fileID: 1296820896}
   m_Father: {fileID: 0}
@@ -1490,6 +1505,11 @@ Prefab:
         type: 2}
       propertyPath: m_Radius
       value: 4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114433790439480950, guid: 03a8333951ba79840bb02fe7cae827d0,
+        type: 2}
+      propertyPath: aggroRange
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
