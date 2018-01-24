@@ -9,10 +9,10 @@ public class BasicEnemy : MonoBehaviour
     public int health = 20;
     public int damage = 5;
 
-    private Animator an;
-    private SpriteRenderer sr;
-    private bool aggro;
-    private GameObject player;
+    protected Animator an;
+    protected SpriteRenderer sr;
+    protected bool aggro;
+    protected GameObject player;
 
     // Use this for initialization
     void Start()
@@ -20,6 +20,7 @@ public class BasicEnemy : MonoBehaviour
         an = GetComponent<Animator>();
         sr = GetComponent<SpriteRenderer>();
         aggro = false;
+        player = GameObject.Find("Player");
     }
 
     void FixedUpdate()
@@ -53,11 +54,10 @@ public class BasicEnemy : MonoBehaviour
         {
             aggro = true;
             this.gameObject.GetComponent<CircleCollider2D>().enabled = false;
-            player = other.gameObject;
         }
     }
 
-    private void Flip()
+    protected void Flip()
     {
         sr.flipX = !sr.flipX;
         
