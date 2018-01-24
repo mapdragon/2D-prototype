@@ -86,7 +86,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0a9bd0297a85d346add7f7f4052efe8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1394783358116298, guid: 25527d00ef01a7a49897ab5b574a30f3, type: 2}
   damage: 5
 --- !u!212 &212840460658098792
 SpriteRenderer:

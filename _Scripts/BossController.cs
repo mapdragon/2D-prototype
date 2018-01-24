@@ -1,10 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BossController : BasicEnemy {
 
-    private int count = 0;
+    private int count = 60;
 
     public GameObject[] projectiles;
     

@@ -11,7 +11,7 @@ public class BasicEnemy : MonoBehaviour
 
     protected Animator an;
     protected SpriteRenderer sr;
-    protected bool aggro;
+    public bool aggro;
     protected GameObject player;
 
     // Use this for initialization
