@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace UnityStandardAssets._2D
 {
@@ -135,6 +136,10 @@ namespace UnityStandardAssets._2D
         {
             health -= dam;
             healthBar.transform.localScale = new Vector3(health * 0.02f, 1, 1);
+            if (health <= 0)
+            {
+                SceneManager.LoadScene("Lose");
+            }
         }
     }
 }

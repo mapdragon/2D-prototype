@@ -21,6 +21,9 @@ public class Weapon : MonoBehaviour {
         if (other.CompareTag("Enemy"))
         {
             other.gameObject.GetComponent<BasicEnemy>().TakeDamage(damage);
+        }else if (other.CompareTag("Boss"))
+        {
+            other.gameObject.GetComponent<BossController>().TakeDamage(damage);
         }
     }
 }

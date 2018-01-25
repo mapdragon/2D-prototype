@@ -26,11 +26,11 @@ public class FireballBehavior : MonoBehaviour {
         if (other.gameObject.Equals(player))
         {
             player.GetComponent<UnityStandardAssets._2D.PlatformerCharacter2D>().TakeDamage(damage);
-            Destroy(gameObject);
+            //Destroy(gameObject);
         }
         else
         {
-            Destroy(gameObject);
+            //Destroy(gameObject);
         }
     }
 }
